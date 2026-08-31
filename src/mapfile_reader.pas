@@ -1,5 +1,7 @@
 unit mapfile_reader;
 
+// vibe-coded multi-format .map file reader using Gemini Pro 3.1-high
+
 {$mode objfpc}{$H+}
 
 interface

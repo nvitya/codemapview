@@ -2,6 +2,8 @@ backup
 lib
 codemapview
 codemapview.lps
+mapfiledump
+mapfiledump.lps
 
 # Prerequisites
 *.d

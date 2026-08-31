@@ -24,7 +24,7 @@ begin
 
   try
     mapfile.LoadFromFile(ParamStr(1));
-    
+
     // Writeln('Type', #9, 'VMA', #9, 'Size', #9, 'Section', #9, 'Object', #9, 'Symbol');
     for i := 0 to High(mapfile.Items) do
     begin
@@ -34,7 +34,7 @@ begin
         metObject:  typeStr := 'Object';
         metSymbol:  typeStr := 'Symbol';
       end;
-      
+
       Writeln(typeStr, #9, me.VMA, #9, me.Size, #9, me.SectionName, #9, me.ObjectName, #9, me.SymbolName);
     end;
   except
@@ -45,3 +45,4 @@ begin
     end;
   end;
 end.
+
