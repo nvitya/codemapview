@@ -1,0 +1,279 @@
+object frmMain: TfrmMain
+  Left = 300
+  Height = 600
+  Top = 200
+  Width = 980
+  AllowDropFiles = True
+  Caption = 'Code Map Viewer'
+  ClientHeight = 600
+  ClientWidth = 980
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  OnDropFiles = FormDropFiles
+  object pnlTop: TPanel
+    Left = 0
+    Height = 64
+    Top = 0
+    Width = 980
+    Align = alTop
+    ClientHeight = 64
+    ClientWidth = 980
+    TabOrder = 0
+    object BtnLoad: TButton
+      Left = 8
+      Height = 25
+      Top = 15
+      Width = 64
+      Caption = 'Load...'
+      TabOrder = 0
+      OnClick = BtnLoadClick
+    end
+    object lbType: TLabel
+      Left = 176
+      Height = 14
+      Top = 8
+      Width = 30
+      Caption = 'Type:'
+    end
+    object CmbFilter: TComboBox
+      Left = 176
+      Height = 27
+      Top = 28
+      Width = 97
+      ItemHeight = 0
+      ItemIndex = 3
+      Items.Strings = (
+        '*'
+        'Sections'
+        'Objects'
+        'Symbols'
+      )
+      Style = csDropDownList
+      TabOrder = 1
+      Text = 'Symbols'
+      OnChange = CmbFilterChange
+    end
+    object cbCode: TCheckBox
+      Left = 288
+      Height = 21
+      Top = 8
+      Width = 50
+      Caption = 'Code'
+      Checked = True
+      State = cbChecked
+      TabOrder = 2
+      OnChange = CmbFilterChange
+    end
+    object cbData: TCheckBox
+      Left = 352
+      Height = 21
+      Top = 8
+      Width = 48
+      Caption = 'Data'
+      Checked = True
+      State = cbChecked
+      TabOrder = 3
+      OnChange = CmbFilterChange
+    end
+    object cbOther: TCheckBox
+      Left = 288
+      Height = 21
+      Top = 34
+      Width = 54
+      Caption = 'Other'
+      Checked = True
+      State = cbChecked
+      TabOrder = 4
+      OnChange = CmbFilterChange
+    end
+    object cbDebug: TCheckBox
+      Left = 352
+      Height = 21
+      Top = 34
+      Width = 59
+      Caption = 'Debug'
+      TabOrder = 5
+      OnChange = CmbFilterChange
+    end
+    object btnReload: TButton
+      Left = 84
+      Height = 25
+      Top = 15
+      Width = 64
+      Caption = 'Reload'
+      TabOrder = 6
+      OnClick = btnReloadClick
+    end
+    object lbName: TLabel
+      Left = 436
+      Height = 14
+      Top = 11
+      Width = 35
+      Caption = 'Name:'
+    end
+    object edName: TEdit
+      Left = 432
+      Height = 26
+      Top = 28
+      Width = 112
+      TabOrder = 7
+      OnKeyUp = UpdateFilters
+    end
+    object lbObject: TLabel
+      Left = 560
+      Height = 14
+      Top = 11
+      Width = 60
+      Caption = 'Object file:'
+    end
+    object edObject: TEdit
+      Left = 560
+      Height = 26
+      Top = 28
+      Width = 112
+      TabOrder = 8
+      OnKeyUp = UpdateFilters
+    end
+  end
+  object grid: TStringGrid
+    Left = 0
+    Height = 506
+    Top = 64
+    Width = 980
+    Align = alClient
+    AutoFillColumns = True
+    ColCount = 6
+    Columns = <    
+      item
+        SizePriority = 0
+        Title.Caption = 'Type'
+        Width = 75
+      end    
+      item
+        SizePriority = 0
+        Title.Caption = 'Section'
+        Width = 83
+      end    
+      item
+        Alignment = taRightJustify
+        SizePriority = 0
+        Title.Caption = 'Size'
+        Width = 83
+      end    
+      item
+        Title.Caption = 'Name'
+        Width = 308
+      end    
+      item
+        Alignment = taRightJustify
+        SizePriority = 0
+        Title.Caption = 'Object File'
+        Width = 309
+      end    
+      item
+        Alignment = taRightJustify
+        SizePriority = 0
+        Title.Caption = 'VMA (Hex)'
+        Width = 100
+      end>
+    FixedCols = 0
+    MouseWheelOption = mwGrid
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goRowSelect, goThumbTracking, goSmoothScroll, goHeaderHotTracking]
+    RangeSelectMode = rsmMulti
+    RowCount = 1
+    ScrollBars = ssVertical
+    TabOrder = 1
+    OnCompareCells = gridCompareCells
+    OnDblClick = gridDblClick
+    OnHeaderClick = gridHeaderClick
+    OnSelection = gridSelection
+    ColWidths = (
+      75
+      83
+      83
+      308
+      309
+      100
+    )
+  end
+  object PanelBottom: TPanel
+    Left = 0
+    Height = 30
+    Top = 570
+    Width = 980
+    Align = alBottom
+    ClientHeight = 30
+    ClientWidth = 980
+    TabOrder = 2
+    object txtRowCount: TStaticText
+      Left = 0
+      Height = 17
+      Top = 5
+      Width = 40
+      Alignment = taRightJustify
+      BorderStyle = sbsSunken
+      Caption = '0000'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+    end
+    object Label1: TLabel
+      Left = 45
+      Height = 14
+      Top = 6
+      Width = 28
+      Caption = 'Rows'
+    end
+    object txtListedSize: TStaticText
+      Left = 84
+      Height = 17
+      Top = 5
+      Width = 72
+      Alignment = taRightJustify
+      BorderStyle = sbsSunken
+      Caption = '00000000'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 1
+    end
+    object Label2: TLabel
+      Left = 162
+      Height = 14
+      Top = 6
+      Width = 29
+      Caption = 'Bytes'
+    end
+    object txtSelectedSize: TStaticText
+      Left = 308
+      Height = 17
+      Top = 5
+      Width = 72
+      Alignment = taRightJustify
+      BorderStyle = sbsSunken
+      Caption = '00000000'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 2
+    end
+    object Label3: TLabel
+      Left = 386
+      Height = 14
+      Top = 6
+      Width = 29
+      Caption = 'Bytes'
+    end
+    object Label4: TLabel
+      Left = 258
+      Height = 14
+      Top = 7
+      Width = 50
+      Caption = 'Selected:'
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    DefaultExt = '.map'
+    Filter = 'Map files (*.map)|*.map|All files (*.*)|*.*'
+    Left = 735
+    Top = 280
+  end
+end
