@@ -1,45 +1,47 @@
 object frmMain: TfrmMain
   Left = 300
-  Height = 600
+  Height = 719
   Top = 200
-  Width = 980
+  Width = 1174
   AllowDropFiles = True
   Caption = 'Code Map Viewer'
-  ClientHeight = 600
-  ClientWidth = 980
+  ClientHeight = 719
+  ClientWidth = 1174
+  DesignTimePPI = 115
   Position = poScreenCenter
+  LCLVersion = '4.8.0.0'
   OnCreate = FormCreate
   OnDropFiles = FormDropFiles
   object pnlTop: TPanel
     Left = 0
-    Height = 64
+    Height = 77
     Top = 0
-    Width = 980
+    Width = 1174
     Align = alTop
-    ClientHeight = 64
-    ClientWidth = 980
+    ClientHeight = 77
+    ClientWidth = 1174
     TabOrder = 0
     object BtnLoad: TButton
-      Left = 8
-      Height = 25
-      Top = 15
-      Width = 64
+      Left = 10
+      Height = 30
+      Top = 18
+      Width = 77
       Caption = 'Load...'
       TabOrder = 0
       OnClick = BtnLoadClick
     end
     object lbType: TLabel
-      Left = 176
-      Height = 14
-      Top = 8
-      Width = 30
+      Left = 211
+      Height = 23
+      Top = 10
+      Width = 40
       Caption = 'Type:'
     end
     object CmbFilter: TComboBox
-      Left = 176
-      Height = 27
-      Top = 28
-      Width = 97
+      Left = 211
+      Height = 31
+      Top = 34
+      Width = 116
       ItemHeight = 0
       ItemIndex = 3
       Items.Strings = (
@@ -54,10 +56,10 @@ object frmMain: TfrmMain
       OnChange = CmbFilterChange
     end
     object cbCode: TCheckBox
-      Left = 288
-      Height = 21
-      Top = 8
-      Width = 50
+      Left = 345
+      Height = 27
+      Top = 10
+      Width = 62
       Caption = 'Code'
       Checked = True
       State = cbChecked
@@ -65,10 +67,10 @@ object frmMain: TfrmMain
       OnChange = CmbFilterChange
     end
     object cbData: TCheckBox
-      Left = 352
-      Height = 21
-      Top = 8
-      Width = 48
+      Left = 422
+      Height = 27
+      Top = 10
+      Width = 59
       Caption = 'Data'
       Checked = True
       State = cbChecked
@@ -76,10 +78,10 @@ object frmMain: TfrmMain
       OnChange = CmbFilterChange
     end
     object cbOther: TCheckBox
-      Left = 288
-      Height = 21
-      Top = 34
-      Width = 54
+      Left = 345
+      Height = 27
+      Top = 41
+      Width = 67
       Caption = 'Other'
       Checked = True
       State = cbChecked
@@ -87,59 +89,59 @@ object frmMain: TfrmMain
       OnChange = CmbFilterChange
     end
     object cbDebug: TCheckBox
-      Left = 352
-      Height = 21
-      Top = 34
-      Width = 59
+      Left = 422
+      Height = 27
+      Top = 41
+      Width = 74
       Caption = 'Debug'
       TabOrder = 5
       OnChange = CmbFilterChange
     end
     object btnReload: TButton
-      Left = 84
-      Height = 25
-      Top = 15
-      Width = 64
+      Left = 101
+      Height = 30
+      Top = 18
+      Width = 77
       Caption = 'Reload'
       TabOrder = 6
       OnClick = btnReloadClick
     end
     object lbName: TLabel
-      Left = 436
-      Height = 14
-      Top = 11
-      Width = 35
+      Left = 522
+      Height = 23
+      Top = 13
+      Width = 49
       Caption = 'Name:'
     end
     object edName: TEdit
-      Left = 432
-      Height = 26
-      Top = 28
-      Width = 112
+      Left = 518
+      Height = 31
+      Top = 34
+      Width = 134
       TabOrder = 7
       OnKeyUp = UpdateFilters
     end
     object lbObject: TLabel
-      Left = 560
-      Height = 14
-      Top = 11
-      Width = 60
+      Left = 671
+      Height = 23
+      Top = 13
+      Width = 80
       Caption = 'Object file:'
     end
     object edObject: TEdit
-      Left = 560
-      Height = 26
-      Top = 28
-      Width = 112
+      Left = 671
+      Height = 31
+      Top = 34
+      Width = 134
       TabOrder = 8
       OnKeyUp = UpdateFilters
     end
   end
   object grid: TStringGrid
     Left = 0
-    Height = 506
-    Top = 64
-    Width = 980
+    Height = 599
+    Top = 77
+    Width = 1174
     Align = alClient
     AutoFillColumns = True
     ColCount = 6
@@ -147,34 +149,34 @@ object frmMain: TfrmMain
       item
         SizePriority = 0
         Title.Caption = 'Type'
-        Width = 75
+        Width = 90
       end    
       item
         SizePriority = 0
         Title.Caption = 'Section'
-        Width = 83
+        Width = 99
       end    
       item
         Alignment = taRightJustify
         SizePriority = 0
         Title.Caption = 'Size'
-        Width = 83
+        Width = 99
       end    
       item
         Title.Caption = 'Name'
-        Width = 308
+        Width = 373
       end    
       item
         Alignment = taRightJustify
         SizePriority = 0
         Title.Caption = 'Object File'
-        Width = 309
+        Width = 370
       end    
       item
         Alignment = taRightJustify
         SizePriority = 0
         Title.Caption = 'VMA (Hex)'
-        Width = 100
+        Width = 120
       end>
     FixedCols = 0
     MouseWheelOption = mwGrid
@@ -188,28 +190,28 @@ object frmMain: TfrmMain
     OnHeaderClick = gridHeaderClick
     OnSelection = gridSelection
     ColWidths = (
-      75
-      83
-      83
-      308
-      309
-      100
+      90
+      99
+      99
+      373
+      370
+      120
     )
   end
   object PanelBottom: TPanel
     Left = 0
-    Height = 30
-    Top = 570
-    Width = 980
+    Height = 43
+    Top = 676
+    Width = 1174
     Align = alBottom
-    ClientHeight = 30
-    ClientWidth = 980
+    ClientHeight = 43
+    ClientWidth = 1174
     TabOrder = 2
     object txtRowCount: TStaticText
-      Left = 0
-      Height = 17
-      Top = 5
-      Width = 40
+      Left = 5
+      Height = 28
+      Top = 6
+      Width = 48
       Alignment = taRightJustify
       BorderStyle = sbsSunken
       Caption = '0000'
@@ -218,17 +220,17 @@ object frmMain: TfrmMain
       TabOrder = 0
     end
     object Label1: TLabel
-      Left = 45
-      Height = 14
-      Top = 6
-      Width = 28
+      Left = 59
+      Height = 23
+      Top = 7
+      Width = 40
       Caption = 'Rows'
     end
     object txtListedSize: TStaticText
-      Left = 84
-      Height = 17
-      Top = 5
-      Width = 72
+      Left = 106
+      Height = 28
+      Top = 6
+      Width = 86
       Alignment = taRightJustify
       BorderStyle = sbsSunken
       Caption = '00000000'
@@ -237,17 +239,17 @@ object frmMain: TfrmMain
       TabOrder = 1
     end
     object Label2: TLabel
-      Left = 162
-      Height = 14
-      Top = 6
-      Width = 29
+      Left = 199
+      Height = 23
+      Top = 7
+      Width = 41
       Caption = 'Bytes'
     end
     object txtSelectedSize: TStaticText
-      Left = 308
-      Height = 17
-      Top = 5
-      Width = 72
+      Left = 374
+      Height = 28
+      Top = 6
+      Width = 86
       Alignment = taRightJustify
       BorderStyle = sbsSunken
       Caption = '00000000'
@@ -256,24 +258,24 @@ object frmMain: TfrmMain
       TabOrder = 2
     end
     object Label3: TLabel
-      Left = 386
-      Height = 14
-      Top = 6
-      Width = 29
+      Left = 467
+      Height = 23
+      Top = 7
+      Width = 41
       Caption = 'Bytes'
     end
     object Label4: TLabel
-      Left = 258
-      Height = 14
-      Top = 7
-      Width = 50
+      Left = 303
+      Height = 23
+      Top = 8
+      Width = 68
       Caption = 'Selected:'
     end
   end
   object OpenDialog1: TOpenDialog
     DefaultExt = '.map'
     Filter = 'Map files (*.map)|*.map|All files (*.*)|*.*'
-    Left = 735
-    Top = 280
+    Left = 880
+    Top = 335
   end
 end

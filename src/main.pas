@@ -245,6 +245,17 @@ begin
     else
       Result := 0;
   end
+  else if ACol = vma_col_idx then // VMA
+  begin
+    ValA := StrToIntDef('$'+grid.Cells[ACol, ARow], 0);
+    ValB := StrToIntDef('$'+grid.Cells[BCol, BRow], 0);
+    if ValA < ValB then
+      Result := -1
+    else if ValA > ValB then
+      Result := 1
+    else
+      Result := 0;
+  end
   else
   begin
     Result := CompareText(grid.Cells[ACol, ARow], grid.Cells[BCol, BRow]);
